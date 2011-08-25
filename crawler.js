@@ -107,7 +107,7 @@ writeFile = function(filename, status) {
 		} else {
 			fs.readFile(filename, "binary", function(err, file) {
 				if(err) {
-					req.write( 500, err );
+					req.write(500, err);
 				} else {
 					var mimeType = mime.lookup(filename);
 					req.write(file, status, {"Content-Type": mimeType}, "binary");
