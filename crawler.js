@@ -43,6 +43,7 @@ var server = http.createServer( function (req, res) {
 });
 
 server.listen(1337, "127.0.0.1");
+console.log("Server listening at http://127.0.0.1:1337");
 
 httpHandler = function(req) {
 	if(req.url === "/proxy.html")
@@ -57,7 +58,13 @@ httpHandler = function(req) {
 };
 
 function proxyHandler(req) {
-	var urlObj = url.parse(unescape(req.data.url));
+	
+	var urlStr = unescape(req.data.url);
+	if(! /^http:\/\//.test(urlStr))
+		urlStr = "http://" + urlStr;
+	
+	
+	var urlObj = url.parse(urlStr);
 	var options = {
 		host: urlObj.hostname,
 		port: 80,
