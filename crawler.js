@@ -63,7 +63,6 @@ function proxyHandler(req) {
 	if(! /^http:\/\//.test(urlStr))
 		urlStr = "http://" + urlStr;
 	
-	
 	var urlObj = url.parse(urlStr);
 	var options = {
 		host: urlObj.hostname,
