@@ -1,6 +1,6 @@
 var http = require("http");
 var jsdom = require("jsdom");
-var path= require("path");
+var path = require("path");
 var fs = require("fs");
 var mime = require("mime");
 var url = require("url");
@@ -37,13 +37,15 @@ var server = http.createServer( function (req, res) {
 			}
 		}; 
 
-		httpHandler( bbRequest );
+		httpHandler(bbRequest);
 	});
 
 });
 
-server.listen(1337, "127.0.0.1");
-console.log("Server listening at http://127.0.0.1:1337");
+var ip = "127.0.0.1";
+var port = 1337;
+server.listen(port, ip);
+console.log("Server listening at http://" + ip + ":" + port);
 
 httpHandler = function(req) {
 	if(req.url === "/proxy.html")
