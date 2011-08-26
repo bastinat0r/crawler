@@ -62,7 +62,7 @@ httpHandler = function(req) {
 function proxyHandler(req) {
 	
 	var urlStr = unescape(req.data.url);
-	if(! /^http:\/\//.test(urlStr))
+	if(! /^http:\/\//.test(urlStr))  // testing for "http://"
 		urlStr = "http://" + urlStr;
 	
 	var urlObj = url.parse(urlStr);
