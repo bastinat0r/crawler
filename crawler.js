@@ -1,5 +1,4 @@
 var http = require("http");
-var jsdom = require("jsdom");
 var path = require("path");
 var fs = require("fs");
 var mime = require("mime");
@@ -60,7 +59,6 @@ httpHandler = function(req) {
 };
 
 function proxyHandler(req) {
-	
 	var urlStr = unescape(req.data.url);
 	if(! /^http:\/\//.test(urlStr))
 		urlStr = "http://" + urlStr;
