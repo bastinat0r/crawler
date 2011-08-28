@@ -4,7 +4,7 @@ var fs = require("fs");
 var mime = require("mime");
 var url = require("url");
 
-var server = http.createServer( function (req, res) {
+var server = http.createServer(function(req, res) {
 	req.setEncoding("utf8");
 	req.content = "";
 	req.on("data", function(content) {
