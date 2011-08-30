@@ -1,7 +1,17 @@
 function selectLink(href) {
 	alert(href);
-	location.href = "proxy.html";
-	// ToDo: post -> url (like in index.html, GET would possibly be easier ...) 
+	var form = document.createElement("form");
+	form.setAttribute("method", "post");
+	form.setAttribute("action", "../proxy.html");
+
+	var hiddenField = document.createElement("input");
+	hiddenField.setAttribute("type", "text");
+	hiddenField.setAttribute("name", "url");
+	hiddenField.setAttribute("value", href);
+
+	form.appendChild(hiddenField);
+	document.body.appendChild(form);
+	form.submit();
 }
 
 $(document).ready(function() {
