@@ -80,6 +80,7 @@ function proxyHandler(req) {
 		res.on("end", function() {
 			// insert scripts (jQuery, select.js):
 			content = content.replace(/<\/title>/, "</title>\n <script src=\"./jquery-1.6.2.min.js\"></script>\n <script src=\"./select.js\"></script>");
+			content = content.replace(/<\/TITLE>/, "</TITLE>\n <script src=\"./jquery-1.6.2.min.js\"></script>\n <script src=\"./select.js\"></script>");
 			req.write(content, 200, {"Content-Type": "text/html"});
 		});
 	});
